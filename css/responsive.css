@@ -1,0 +1,293 @@
+/* ===== 响应式布局 ===== */
+
+/* 平板设备 (768px - 1023px) */
+@media (max-width: 1023px) {
+    .header-content {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+
+    .nav-tabs {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tool-container {
+        padding: var(--spacing-md);
+    }
+
+    .about-container {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* 移动设备 (< 768px) */
+@media (max-width: 767px) {
+    /* 头部导航 */
+    .header-content {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .logo {
+        font-size: var(--font-size-md);
+    }
+
+    .nav-tabs {
+        gap: var(--spacing-xs);
+    }
+
+    .tab-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+    }
+
+    .tab-text {
+        display: none;
+    }
+
+    .tab-icon {
+        font-size: var(--font-size-lg);
+    }
+
+    .header-actions {
+        gap: var(--spacing-xs);
+    }
+
+    .action-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* 主内容区 */
+    .main-content {
+        padding: var(--spacing-md);
+    }
+
+    .tool-container {
+        padding: var(--spacing-md);
+    }
+
+    .tool-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .tool-header h2 {
+        font-size: var(--font-size-md);
+    }
+
+    /* 计算器 */
+    .calculator-display {
+        padding: var(--spacing-md);
+        min-height: 80px;
+    }
+
+    .result {
+        font-size: 24px;
+    }
+
+    .calculator-buttons {
+        gap: var(--spacing-xs);
+    }
+
+    .calc-btn {
+        height: 50px;
+        font-size: var(--font-size-md);
+    }
+
+    /* 待办清单 */
+    .add-task-section {
+        flex-direction: column;
+    }
+
+    .priority-select {
+        width: 100%;
+    }
+
+    .filter-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .filter-btn {
+        flex: 1;
+        text-align: center;
+    }
+
+    .task-item {
+        flex-wrap: wrap;
+    }
+
+    .task-actions {
+        opacity: 1;
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: var(--spacing-sm);
+    }
+
+    /* 密码生成器 */
+    .password-config {
+        padding: var(--spacing-md);
+    }
+
+    .password-result {
+        font-size: var(--font-size-md);
+        padding: var(--spacing-md);
+    }
+
+    /* 关于我 */
+    .about-container {
+        padding: var(--spacing-md);
+    }
+
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .skill-tags {
+        gap: var(--spacing-xs);
+    }
+
+    .skill-tag {
+        font-size: var(--font-size-xs);
+        padding: 4px 8px;
+    }
+
+    .project-item {
+        padding: var(--spacing-md);
+    }
+
+    .contact-links {
+        flex-direction: column;
+    }
+
+    .contact-link {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* 统计面板 */
+    .stats-panel {
+        width: 100%;
+        right: -100%;
+    }
+
+    .stats-content {
+        padding: var(--spacing-md);
+    }
+
+    /* 模态框 */
+    .modal-content {
+        width: 95%;
+        margin: var(--spacing-md);
+    }
+
+    .modal-header,
+    .modal-body {
+        padding: var(--spacing-md);
+    }
+}
+
+/* 小屏幕手机 (< 375px) */
+@media (max-width: 374px) {
+    .logo {
+        font-size: var(--font-size-sm);
+    }
+
+    .tab-btn {
+        padding: 6px;
+    }
+
+    .action-btn {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-sm);
+    }
+
+    .calc-btn {
+        height: 45px;
+        font-size: var(--font-size-sm);
+    }
+
+    .result {
+        font-size: 20px;
+    }
+}
+
+/* 横屏模式 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+
+    .main-content {
+        min-height: auto;
+        padding: var(--spacing-sm);
+    }
+
+    .calculator-buttons {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--spacing-xs);
+    }
+
+    .calc-btn {
+        height: 40px;
+    }
+
+    .history-section {
+        max-height: 150px;
+        overflow-y: auto;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .header,
+    .stats-panel,
+    .modal {
+        display: none;
+    }
+
+    .main-content {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .tool-container {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000;
+        --text-primary: #000;
+        --text-secondary: #333;
+    }
+
+    [data-theme="dark"] {
+        --border-color: #fff;
+        --text-primary: #fff;
+        --text-secondary: #ccc;
+    }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,159 @@
+/* ===== 深色主题变量 ===== */
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #1a1a1a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --text-tertiary: #707070;
+    --border-color: #404040;
+    --divider-color: #333333;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+
+    --primary-color: #40a9ff;
+    --primary-hover: #69c0ff;
+    --primary-active: #1890ff;
+}
+
+/* ===== 主题过渡动画 ===== */
+body,
+.header,
+.tab-panel,
+.tool-container,
+.calculator-display,
+.task-list,
+.password-display,
+.about-container,
+.stats-panel,
+.modal {
+    transition: background-color var(--transition-normal),
+                color var(--transition-normal),
+                border-color var(--transition-normal);
+}
+
+/* ===== 深色主题特殊样式 ===== */
+[data-theme="dark"] .header {
+    background-color: var(--bg-primary);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .tab-btn {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .tab-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .tab-btn.active {
+    color: var(--primary-color);
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .action-btn {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .action-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+[data-theme="dark"] .tool-container {
+    background-color: var(--bg-primary);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+[data-theme="dark"] .calculator-display {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .calc-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .calc-btn:hover {
+    background-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .calc-btn.operator {
+    background-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .task-item {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .task-input,
+[data-theme="dark"] .priority-select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .password-config input[type="range"] {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .password-result {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .history-item {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .about-container {
+    background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .skill-tag {
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .project-item {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .contact-link {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .contact-link:hover {
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .stats-panel {
+    background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .toast {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* ===== 主题切换按钮动画 ===== */
+#themeIcon {
+    display: inline-block;
+    transition: transform var(--transition-normal);
+}
+
+[data-theme="dark"] #themeIcon {
+    transform: rotate(180deg);
+}

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="多功能工具箱 - 提供计算器、待办清单、密码生成器等实用工具">
+    <title>多功能工具箱</title>
+
+    <!-- CSS文件引入 -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/password.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">多功能工具箱</h1>
+
+            <!-- 导航标签 -->
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-tab="calculator">
+                    <span class="tab-icon">🔢</span>
+                    <span class="tab-text">计算器</span>
+                </button>
+                <button class="tab-btn" data-tab="todo">
+                    <span class="tab-icon">✅</span>
+                    <span class="tab-text">待办清单</span>
+                </button>
+                <button class="tab-btn" data-tab="password">
+                    <span class="tab-icon">🔐</span>
+                    <span class="tab-text">密码生成器</span>
+                </button>
+                <button class="tab-btn" data-tab="about">
+                    <span class="tab-icon">👤</span>
+                    <span class="tab-text">关于我</span>
+                </button>
+            </nav>
+
+            <!-- 功能按钮区 -->
+            <div class="header-actions">
+                <button class="action-btn" id="statsBtn" title="统计数据">
+                    <span>📊</span>
+                </button>
+                <button class="action-btn" id="themeBtn" title="切换主题">
+                    <span id="themeIcon">🌙</span>
+                </button>
+                <button class="action-btn" id="exportBtn" title="导出数据">
+                    <span>💾</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 计算器页面 -->
+        <section class="tab-panel active" id="calculator-panel">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2>计算器</h2>
+                    <button class="clear-btn" id="clearCalcHistory">清空历史</button>
+                </div>
+
+                <!-- 计算器显示区 -->
+                <div class="calculator-display">
+                    <div class="expression" id="calcExpression"></div>
+                    <div class="result" id="calcResult">0</div>
+                </div>
+
+                <!-- 计算器按钮区 -->
+                <div class="calculator-buttons">
+                    <button class="calc-btn operator" data-value="C">C</button>
+                    <button class="calc-btn operator" data-value="±">±</button>
+                    <button class="calc-btn operator" data-value="%">%</button>
+                    <button class="calc-btn operator" data-value="÷">÷</button>
+
+                    <button class="calc-btn number" data-value="7">7</button>
+                    <button class="calc-btn number" data-value="8">8</button>
+                    <button class="calc-btn number" data-value="9">9</button>
+                    <button class="calc-btn operator" data-value="×">×</button>
+
+                    <button class="calc-btn number" data-value="4">4</button>
+                    <button class="calc-btn number" data-value="5">5</button>
+                    <button class="calc-btn number" data-value="6">6</button>
+                    <button class="calc-btn operator" data-value="-">-</button>
+
+                    <button class="calc-btn number" data-value="1">1</button>
+                    <button class="calc-btn number" data-value="2">2</button>
+                    <button class="calc-btn number" data-value="3">3</button>
+                    <button class="calc-btn operator" data-value="+">+</button>
+
+                    <button class="calc-btn number zero" data-value="0">0</button>
+                    <button class="calc-btn number" data-value=".">.</button>
+                    <button class="calc-btn equals" data-value="=">=</button>
+                </div>
+
+                <!-- 计算历史记录 -->
+                <div class="history-section">
+                    <h3>计算历史</h3>
+                    <div class="history-list" id="calcHistoryList">
+                        <div class="empty-state">暂无历史记录</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 待办清单页面 -->
+        <section class="tab-panel" id="todo-panel">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2>待办清单</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">全部</button>
+                        <button class="filter-btn" data-filter="active">未完成</button>
+                        <button class="filter-btn" data-filter="completed">已完成</button>
+                    </div>
+                </div>
+
+                <!-- 添加任务区 -->
+                <div class="add-task-section">
+                    <input type="text" class="task-input" id="taskInput" placeholder="添加新任务...">
+                    <select class="priority-select" id="prioritySelect">
+                        <option value="low">低优先级</option>
+                        <option value="medium" selected>中优先级</option>
+                        <option value="high">高优先级</option>
+                    </select>
+                    <button class="add-btn" id="addTaskBtn">添加</button>
+                </div>
+
+                <!-- 任务列表 -->
+                <div class="task-list" id="taskList">
+                    <div class="empty-state">暂无待办任务</div>
+                </div>
+
+                <!-- 任务统计 -->
+                <div class="task-stats">
+                    <span id="taskCount">总计: 0 项任务</span>
+                    <span id="completedCount">已完成: 0 项</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 密码生成器页面 -->
+        <section class="tab-panel" id="password-panel">
+            <div class="tool-container">
+                <div class="tool-header">
+                    <h2>密码生成器</h2>
+                </div>
+
+                <!-- 密码配置区 -->
+                <div class="password-config">
+                    <div class="config-item">
+                        <label>密码长度: <span id="lengthValue">16</span></label>
+                        <input type="range" id="passwordLength" min="8" max="32" value="16">
+                    </div>
+
+                    <div class="config-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="uppercase" checked>
+                            <span>大写字母 (A-Z)</span>
+                        </label>
+                    </div>
+
+                    <div class="config-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="lowercase" checked>
+                            <span>小写字母 (a-z)</span>
+                        </label>
+                    </div>
+
+                    <div class="config-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="numbers" checked>
+                            <span>数字 (0-9)</span>
+                        </label>
+                    </div>
+
+                    <div class="config-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="symbols" checked>
+                            <span>特殊符号 (!@#$%^&*)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 生成按钮 -->
+                <button class="generate-btn" id="generateBtn">生成密码</button>
+
+                <!-- 密码显示区 -->
+                <div class="password-display">
+                    <div class="password-result" id="passwordResult">点击上方按钮生成密码</div>
+                    <div class="password-strength">
+                        <span>强度:</span>
+                        <span class="strength-indicator" id="strengthIndicator">-</span>
+                    </div>
+                    <button class="copy-btn" id="copyBtn" style="display: none;">复制密码</button>
+                </div>
+
+                <!-- 历史记录 -->
+                <div class="password-history">
+                    <div class="history-header">
+                        <h3>历史记录</h3>
+                        <button class="clear-btn" id="clearPwdHistory">清空</button>
+                    </div>
+                    <div class="history-list" id="pwdHistoryList">
+                        <div class="empty-state">暂无历史记录</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于我页面 -->
+        <section class="tab-panel" id="about-panel">
+            <div class="about-container">
+                <!-- 头部信息 -->
+                <div class="about-header">
+                    <div class="avatar">
+                        <img src="https://via.placeholder.com/150" alt="头像">
+                    </div>
+                    <h2 class="name">前端开发者</h2>
+                    <p class="title">Frontend Developer</p>
+                    <p class="bio">热爱编程,专注于前端开发领域,致力于创造优秀的用户体验。</p>
+                </div>
+
+                <!-- 技能标签 -->
+                <div class="skills-section">
+                    <h3>技能栈</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Webpack</span>
+                    </div>
+                </div>
+
+                <!-- 项目经历 -->
+                <div class="projects-section">
+                    <h3>项目经历</h3>
+                    <div class="project-list">
+                        <div class="project-item">
+                            <div class="project-header">
+                                <h4>多功能工具箱</h4>
+                                <span class="project-time">2026</span>
+                            </div>
+                            <p class="project-desc">一个包含计算器、待办清单、密码生成器等实用工具的Web应用。</p>
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-header">
+                                <h4>个人博客系统</h4>
+                                <span class="project-time">2025</span>
+                            </div>
+                            <p class="project-desc">基于Vue.js开发的个人博客系统,支持Markdown编辑和文章管理。</p>
+                            <div class="project-tech">
+                                <span>Vue.js</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 联系方式 -->
+                <div class="contact-section">
+                    <h3>联系方式</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <span class="contact-icon">📧</span>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="mailto:example@email.com" class="contact-link">
+                            <span class="contact-icon">✉️</span>
+                            <span>Email</span>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span class="contact-icon">🌐</span>
+                            <span>Blog</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 统计面板 -->
+    <div class="stats-panel" id="statsPanel">
+        <div class="stats-content">
+            <div class="stats-header">
+                <h3>数据统计</h3>
+                <button class="close-btn" id="closeStatsBtn">✕</button>
+            </div>
+            <div class="stats-body">
+                <div class="stat-item">
+                    <span class="stat-label">计算器使用次数</span>
+                    <span class="stat-value" id="calcUseCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">待办任务总数</span>
+                    <span class="stat-value" id="totalTaskCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">待办完成率</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="taskProgressFill" style="width: 0%"></div>
+                    </div>
+                    <span class="stat-value" id="taskCompletionRate">0%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">密码生成次数</span>
+                    <span class="stat-value" id="pwdGenCount">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导入导出面板 -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>数据管理</h3>
+                <button class="close-btn" id="closeExportModal">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="export-section">
+                    <h4>导出数据</h4>
+                    <p>将所有数据导出为JSON文件进行备份</p>
+                    <button class="primary-btn" id="exportDataBtn">导出数据</button>
+                </div>
+                <div class="import-section">
+                    <h4>导入数据</h4>
+                    <p>从JSON文件恢复数据</p>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                    <button class="primary-btn" id="importDataBtn">选择文件</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示消息 -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript文件引入 -->
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/password.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

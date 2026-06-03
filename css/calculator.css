@@ -1,0 +1,122 @@
+/* ===== 计算器样式 ===== */
+
+/* 计算器显示区 */
+.calculator-display {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.expression {
+    font-size: var(--font-size-md);
+    color: var(--text-tertiary);
+    margin-bottom: var(--spacing-sm);
+    min-height: 24px;
+    word-break: break-all;
+    text-align: right;
+    width: 100%;
+}
+
+.result {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-primary);
+    word-break: break-all;
+    text-align: right;
+    width: 100%;
+}
+
+/* 计算器按钮区 */
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.calc-btn {
+    height: 60px;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.calc-btn:hover {
+    background-color: var(--bg-tertiary);
+    transform: translateY(-2px);
+}
+
+.calc-btn:active {
+    transform: translateY(0);
+}
+
+.calc-btn.operator {
+    background-color: var(--bg-tertiary);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.calc-btn.equals {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.calc-btn.equals:hover {
+    background-color: var(--primary-hover);
+}
+
+.calc-btn.zero {
+    grid-column: span 2;
+}
+
+/* 计算历史项 */
+.calc-history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.calc-history-item:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.calc-history-item .expression {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    flex: 1;
+    text-align: left;
+    margin-bottom: 0;
+    min-height: auto;
+}
+
+.calc-history-item .result {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-left: var(--spacing-md);
+    width: auto;
+}
+
+.calc-history-item .time {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    margin-left: var(--spacing-md);
+}

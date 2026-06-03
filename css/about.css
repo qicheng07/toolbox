@@ -1,0 +1,192 @@
+/* ===== 关于我页面样式 ===== */
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* 头部信息 */
+.about-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--divider-color);
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto var(--spacing-lg);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.title {
+    font-size: var(--font-size-md);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.bio {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-lg);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 技能标签 */
+.skills-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.skills-section h3,
+.projects-section h3,
+.contact-section h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.skill-tag {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: #e6f7ff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 项目经历 */
+.projects-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.project-item {
+    padding: var(--spacing-lg);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.project-item:hover {
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transform: translateY(-2px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-header h4 {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.project-time {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+}
+
+.project-desc {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: var(--line-height-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.project-tech span {
+    padding: 2px 8px;
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-xs);
+}
+
+/* 联系方式 */
+.contact-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+    transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: var(--font-size-md);
+}
