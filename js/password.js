@@ -325,9 +325,9 @@ const Password = {
                 <div class="password-text">${item.password}</div>
                 <div class="password-meta">
                     <span>${Utils.formatRelativeTime(item.timestamp)}</span>
-                    <span class="strength-indicator ${item.strength}">${
-                        { weak: '弱', medium: '中', strong: '强' }[item.strength]
-                    }</span>
+                    <span class="strength-indicator ${item.strength}">${{
+                        weak: '弱', medium: '中', strong: '强'
+                    }[item.strength]}</span>
                     <button class="copy-history-btn">复制</button>
                 </div>
             </div>
