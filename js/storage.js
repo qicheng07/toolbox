@@ -199,8 +199,6 @@ const Storage = {
     exportAllData() {
         const now = new Date();
         const timestamp = now.toISOString();
-        const dateStr = now.toISOString().replace(/[:.]/g, '-').split('T')[0];
-        const timeStr = now.toTimeString().split(' ')[0].replace(/:/g, '');
 
         return {
             version: '3.0',
@@ -265,7 +263,6 @@ const Storage = {
                 if (mode === 'merge') {
                     const existing = this.getCalculatorHistory();
                     const merged = [...existing, ...data.data.calculator.history];
-                    // 去重(根据id)
                     const unique = merged.filter((item, index, self) =>
                         index === self.findIndex(t => t.id === item.id)
                     );
@@ -280,7 +277,6 @@ const Storage = {
                 if (mode === 'merge') {
                     const existing = this.getTodoTasks();
                     const merged = [...existing, ...data.data.todo.tasks];
-                    // 去重(根据id)
                     const unique = merged.filter((item, index, self) =>
                         index === self.findIndex(t => t.id === item.id)
                     );
@@ -299,7 +295,6 @@ const Storage = {
                     if (mode === 'merge') {
                         const existing = this.getPasswordHistory();
                         const merged = [...existing, ...data.data.password.history];
-                        // 去重(根据id)
                         const unique = merged.filter((item, index, self) =>
                             index === self.findIndex(t => t.id === item.id)
                         );
